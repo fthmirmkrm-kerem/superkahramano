@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class SuperKahraman{
+    public:
+    string adi;
+    int can;
+    int hasar;
+    
+    void ozelGuç(){
+        hasar=10;
+    }
+    
+    SuperKahraman(){
+    hasar=50;
+    can=100;
+    }
+};
+
+int main()
+{
+    SuperKahraman spiderMan;
+    spiderMan.adi="Spider Man";
+    
+    SuperKahraman batMan;
+    batMan.adi="batMan";
+    
+    cout<<"Super kahramanlar kapısıyor."<<endl;
+    bool savasBittiMi=true;
+    while(savasBittiMi){
+    char karakterSecimi;
+    cout<<"Hangi Super kahraman saldırsın. s/b"<<endl;
+    cin>>karakterSecimi;
+    if(karakterSecimi=='b'){
+        spiderMan.can-=batMan.hasar;
+    }
+    else if(karakterSecimi=='s'){
+       batMan .can-=spiderMan.hasar;
+    }
+    else{
+        cout<<"hatali secim"<<endl;
+    }
+    cout<<"spiderMan kalan canı:"<<spiderMan.can<<"batMan kalan canı:"<<batMan.can<<endl;
+    if(spiderMan.can<=0||batMan.can<=0){
+        savasBittiMi=false;
+    }
+    if(spiderMan.can<0){
+        cout<<"Kazanan Batman"<<endl;
+    }
+    else{
+        cout<<"Kazanan SpiderMan"<<endl;
+    }
+    }
+    return 0;
+}
